@@ -8,4 +8,4 @@ API_URL = 'https://api.telegram.org/bot' + TOKEN + '/{method}'
 PORT = 8080
 
 # Webhook url
-WEBHOOK_URL = 'https://bot.nixdrey.com/' + TOKEN
+WEBHOOK_URL = 'https://nixdrey.com/' + TOKEN

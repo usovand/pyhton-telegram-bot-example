@@ -15,7 +15,16 @@ async def handle_updates(request):
 
 
 async def process_updates(updates):
-    print(updates)
+    first_name = updates['message']['chat'].get('first_name')
+    chat_id = updates['message']['chat']['id']
+
+    await send_api_request(
+        'sendMessage',
+        json={
+            'chat_id': chat_id,
+            'text': 'Hello {}!'.format(first_name)
+        }
+    )
 
 
 async def send_api_request(method, json=None):
