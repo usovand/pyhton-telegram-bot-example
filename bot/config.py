@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+import logging
+
 # Api token
 TOKEN = 'token'
 
@@ -16,4 +20,6 @@ WEBHOOK_ROUTE = '/webhook/' + TOKEN
 # Webhook url
 WEBHOOK_URL = 'https://{hostname}{route}'.format(hostname=WEBHOOK_HOST, route=WEBHOOK_ROUTE)
 
+LOGGER = logging.getLogger('BOT')
 
+LOGGER.setLevel(logging.DEBUG)
