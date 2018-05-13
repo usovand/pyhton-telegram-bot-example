@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import logging
+# Api token file
+TOKEN_FILE = 'token.txt'
 
-# Api token
-TOKEN = 'token'
+with open(TOKEN_FILE, 'r') as f:
+    TOKEN = f.read()
 
 # Api url
 API_URL = 'https://api.telegram.org/bot' + TOKEN + '/{method}'
@@ -19,7 +20,3 @@ WEBHOOK_ROUTE = '/webhook/' + TOKEN
 
 # Webhook url
 WEBHOOK_URL = 'https://{hostname}{route}'.format(hostname=WEBHOOK_HOST, route=WEBHOOK_ROUTE)
-
-LOGGER = logging.getLogger('BOT')
-
-LOGGER.setLevel(logging.DEBUG)

@@ -3,20 +3,13 @@
 from aiohttp import ClientSession, ClientResponse
 from urllib.parse import urljoin
 
-from bot.config import API_URL, LOGGER
-
+from bot.config import API_URL
 
 METHOD_SET_WEBHOOK = 'setWebhook'
 METHOD_SEND_MESSAGE = 'sendMessage'
 
 
-async def send_request(method: str, **kwargs) -> ClientResponse:
+async def send_request(session: ClientSession, method: str, **kwargs) -> ClientResponse:
     """ Send bot api request """
-    LOGGER.info('send request {}'.format(method))
-    LOGGER.debug('With {}'.format(kwargs))
-
     url = urljoin(API_URL, method)
-
-    async with ClientSession() as session:
-        async with session.get(url, **kwargs) as response:
-            return response
+    return await session.post(url, **kwargs)
