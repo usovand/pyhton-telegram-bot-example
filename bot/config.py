@@ -4,7 +4,7 @@
 TOKEN_FILE = 'token.txt'
 
 with open(TOKEN_FILE, 'r') as f:
-    TOKEN = f.read()
+    TOKEN = f.read().strip()
 
 # Api url
 API_URL = 'https://api.telegram.org/bot' + TOKEN + '/{method}'
