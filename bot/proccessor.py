@@ -20,26 +20,29 @@ async def keyboard_markup(chat_id: int) -> None:
             json={
                 'chat_id': chat_id,
                 'text': 'Look at this great keyboard',
-                'reply_markup': [
-                    [
-                        {
-                            'text': 'Button1',
-                        },
-                        {
-                            'text': 'Button2',
-                        }
-                    ],
-                    [
-                        {
-                            'text': 'Button3',
-                        },
-                        {
-                            'text': 'Button4',
-                        },
-                    ],
-                ],
-            }
-        )
+                'reply_markup': {
+                    'keyboard':
+                        [
+                            [
+                                {
+                                    'text': 'Button1',
+                                },
+                                {
+                                    'text': 'Button2',
+                                }
+                            ],
+                            [
+                                {
+                                    'text': 'Button3',
+                                },
+                                {
+                                    'text': 'Button4',
+                                },
+                            ],
+                        ],
+                    },
+                }
+            )
 
 
 async def text(chat_id: int) -> None:
