@@ -19,6 +19,7 @@ async def keyboard_markup(chat_id: int) -> None:
             METHOD_SEND_MESSAGE,
             json={
                 'chat_id': chat_id,
+                'text': 'Look at this great keyboard',
                 'reply_markup': [
                     [
                         {
