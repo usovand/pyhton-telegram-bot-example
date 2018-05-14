@@ -6,6 +6,7 @@ from aiohttp import web
 
 from bot.api import *
 from bot.config import WEBHOOK_URL, WEBHOOK_ROUTE
+from bot.proccessor import handle_message
 
 
 async def catch_update(request: web.Request) -> web.Response:
@@ -41,15 +42,8 @@ def run_bot() -> None:
 
 async def handle(update: dict) -> None:
     """ Handle update """
-    async with ClientSession() as session:
-        await send_request(
-            session,
-            METHOD_SEND_MESSAGE,
-            json={
-                'chat_id': update['message']['chat']['id'],
-                'text': 'Hello my dear friend!',
-            }
-        )
+
+    await handle_message(update['message'])
 
 
 if __name__ == '__main__':
