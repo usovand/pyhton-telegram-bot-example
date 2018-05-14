@@ -4,9 +4,9 @@ from bot.api import *
 
 
 async def handle_message(message: dict) -> None:
-    if message['text'] == '/ReplyKeyboardMarkup':
+    if message['text'] == '/replykeyboardmarkup':
         await keyboard_markup(message['chat']['id'])
-    elif message['text'] == '/Text':
+    elif message['text'] == '/text':
         await text(message['chat']['id'])
     else:
         await text(message['chat']['id'])
