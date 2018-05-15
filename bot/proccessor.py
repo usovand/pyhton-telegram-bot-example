@@ -20,6 +20,7 @@ async def keyboard_markup(chat_id: int) -> None:
             json={
                 'chat_id': chat_id,
                 'text': 'Look at this great keyboard',
+                'one_time_keyboard': True,
                 'reply_markup': {
                     'keyboard':
                         [
